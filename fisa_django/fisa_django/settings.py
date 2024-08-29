@@ -40,7 +40,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "blog",
-    "board", # 마지막 줄에도 기왕이면 ,를 적어주세요
+    "board", # 마지막 줄에도 기왕이면 ,를 적어주세요\
+    #"account",
+    'allauth',
+    'allauth.account',
+    'crispy_forms',
+    "crispy_bootstrap5",
+    
 ]
 
 MIDDLEWARE = [
@@ -51,6 +57,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = "fisa_django.urls"
@@ -72,6 +79,14 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "fisa_django.wsgi.application"
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 
 # Database
@@ -112,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # 향후 django app 내에서 현재시각을 사용할 때는 
 # datetime 대신 아래 방식으로 시간을 사용해주세요
 now = timezone.now()
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "ko-kr"
 
 TIME_ZONE = 'Asia/Seoul'
 
@@ -134,3 +149,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '_media') 
+
+
+# LOGIN_REDIRECT_URL = '/blog/post-list'
+LOGIN_REDIRECT_URL = 'blog_app:post_list'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"

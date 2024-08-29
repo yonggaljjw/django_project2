@@ -1,6 +1,12 @@
-{% extends 'blog/base.html' %}
+{% extends 'blog/base.html'%}
 {% load static %}
 {% block page_area %}
+    <div class="row d-flex justify-content-center">
+        <div class="col-1 offset-7">
+        {% if user.is_authenticated %} 
+            <a class="btn btn-secondary" href="{% url 'blog_app:create' %}" role="button">글쓰기</a>&nbsp;&nbsp;          
+        {% endif %}
+        </div>
     {% for p in post_list %}
     <!-- bootstrap에서 card 가져오기 -->
     <div class="card d-flex justify-content-between" style="width: 60rem;">
@@ -13,10 +19,10 @@
         <h6> {{ p.created_at }} </h6>
         <p class="card-text">{{ p.content }}</p>
         <div class="card-end"> 
-        <span>#작성자명</span>
+        <span>{{ p.author }}</span>
         <a href="{{ p.get_absolute_url }}" class="btn btn-dark">더 보기</a>
         </div>
     </div>
-    
+    </div>
     {% endfor %}
 {% endblock %}
