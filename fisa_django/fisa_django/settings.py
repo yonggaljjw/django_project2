@@ -207,8 +207,8 @@ INTERNAL_IPS = [
     "localhost",
 ]
 
-# 디버깅을 위한 출력
-print(f"AWS_ACCESS_KEY_ID: {AWS_ACCESS_KEY_ID}")  # 디버깅
-print(f"AWS_SECRET_ACCESS_KEY: {AWS_SECRET_ACCESS_KEY}")  # 디버깅
-print(f"AWS_STORAGE_BUCKET_NAME: {AWS_STORAGE_BUCKET_NAME}")  # 디버깅
-print(f"STATICFILES_STORAGE: {STATICFILES_LOCATION}")  # 디버깅
+# # 디버깅을 위한 출력
+# print(f"AWS_ACCESS_KEY_ID: {AWS_ACCESS_KEY_ID}")  # 디버깅
+# print(f"AWS_SECRET_ACCESS_KEY: {AWS_SECRET_ACCESS_KEY}")  # 디버깅
+# print(f"AWS_STORAGE_BUCKET_NAME: {AWS_STORAGE_BUCKET_NAME}")  # 디버깅
+# print(f"STATICFILES_STORAGE: {STATICFILES_LOCATION}")  # 디버깅
